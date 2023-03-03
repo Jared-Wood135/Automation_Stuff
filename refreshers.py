@@ -89,7 +89,7 @@ def menu():
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
             clear()
-            print('Works')
+            numpymenu()
             break
         elif menuin == '2':
             clear()
@@ -126,6 +126,28 @@ def numpymenu():
     '''
     Menu of numpy specific help...
     '''
+    while True:
+        print('\033[32m==========> NUMPY MENU <==========\033[0m')
+        print('\033[36m(1)\033[0m random')
+        print('\033[36m(M)\033[0m Return to Main Menu')
+        print('\033[36m(Q)\033[0m Exit Program')
+        menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
+        if menuin == '1':
+            print('Works')
+            break
+        elif menuin == 'm':
+            clear()
+            print('\033[33mReturning to Main Menu\033[0m')
+            menu()
+            break
+        elif menuin.lower() == 'q':
+            clear()
+            print('\033[35mHope it helped!\033[0m')
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+np.random.randint(1, 100, size=[100,100])
 
 # =======================================================================================================
 # Numpy END
