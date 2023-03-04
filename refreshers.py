@@ -7,11 +7,16 @@
 2. Imports
 3. Main Menu
 4. Numpy
+    1. Numpy Random Menu
+        1. randint
+        2. random
+        3. choice
 5. Pandas
 6. Matplotlib.pyplot
 7. Seaborn
 8. Scipy.Stats
 9. Clear Terminal Function
+10. Start Program
 '''
 
 # =======================================================================================================
@@ -37,32 +42,42 @@ import numpy as np
 'numpy' is used for vectorization, arrays, and probabilities...
 Common alias is 'np'...
 '''
-# ////////////////////////////////
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import pandas as pd
 '''
 'pandas' is used to read various files and ultimately create dataframes that can be used
 similarly to things like 'MySQL'...
 Common alias is 'pd'...
 '''
-# ////////////////////////////////
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import matplotlib.pyplot as plt
 '''
 'matplotlib.pyplot' is a sub-library of 'matplotlib' and is used for creating visualizations
 of various data...
 Common alias is 'plt'...
 '''
-# ////////////////////////////////
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import seaborn as sns
 '''
 'seaborn' is similar to 'matplotlib', but generally makes visualizations faster to create...
 Common alias is 'sns'...
 '''
-# ////////////////////////////////
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import scipy.stats as stats
 '''
 'scipy.stats' is a sub-library of 'scipy' and is used to obtain statistical information...
 '''
-# ////////////////////////////////
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 import os
 '''
 This is used specifically to clear the terminal as you navigate this script
@@ -114,7 +129,7 @@ def menu():
         else:
             clear()
             print('\033[31mInvalid Input\033[0m')
-menu()
+
 
 # =======================================================================================================
 # Main Menu END
@@ -133,9 +148,9 @@ def numpymenu():
         print('\033[36m(Q)\033[0m Exit Program')
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
-            print('Works')
+            numpyrandom()
             break
-        elif menuin == 'm':
+        elif menuin.lower() == 'm':
             clear()
             print('\033[33mReturning to Main Menu\033[0m')
             menu()
@@ -147,7 +162,60 @@ def numpymenu():
         else:
             clear()
             print('\033[31mInvalid Input\033[0m')
-np.random.randint(1, 100, size=[100,100])
+
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def numpyrandommenu():
+    '''
+    Help menu for numpy's randomizer functions...
+    '''
+    while True:
+        print('\033[32m==========> NUMPY-RANDOM MENU <==========\033[0m')
+        print('\033[36m(1)\033[0m randint')
+        print('\033[36m(2)\033[0m random')
+        print('\033[36m(3)\033[0m choice')
+        print('\033[36m(N)\033[0m Return to Numpy Menu')
+        print('\033[36m(M)\033[0m Return to Main Menu')
+        print('\033[36m(Q)\033[0m Exit Program')
+        menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
+        if menuin == '1':
+            print('randint')
+            break
+        if menuin == '2':
+            print('random')
+            break
+        if menuin == '3':
+            print('choice')
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Numpy Menu\033[0m')
+            numpymenu()
+            break
+        elif menuin.lower() == 'm':
+            clear()
+            print('\033[33mReturning to Main Menu\033[0m')
+            menu()
+            break
+        elif menuin.lower() == 'q':
+            clear()
+            print('\033[35mHope it helped!\033[0m')
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def numpyrandomrandinthelp():
+    '''
+    Gives help for numpy's randint function...
+    '''
+    print('\033[35mRaw Syntax:\033[0m np.random.randint(#, #, [#, #])')
+    print('\033[35mFilled Syntax:\033[0m np.random.randint(1, 6, [5, 10])')
+    np.random.randint(1, 6, [5, 10])
+
 
 # =======================================================================================================
 # Numpy END
@@ -194,5 +262,13 @@ def clear():
     os.system('clear')
 
 # =======================================================================================================
-# Clear Terminal Function END
+# Clear Terminal END
+# Clear Terminal TO Start Program
+# Start Program START
+# =======================================================================================================
+
+menu()
+
+# =======================================================================================================
+# Start Program END
 # =======================================================================================================
