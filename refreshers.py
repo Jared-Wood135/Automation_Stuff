@@ -9,10 +9,10 @@ D = DONE
     2. Imports
     3. Main Menu
 #    4. Numpy
-##        1. Numpy Random Menu
+D        1. Numpy Random Menu
 D            1. randint 
 D            2. random
-###            3. choice
+D            3. choice
     5. Pandas
     6. Matplotlib.pyplot
     7. Seaborn
@@ -148,8 +148,6 @@ def menu():
 def numpymenu():
     '''
     Menu of numpy specific help...
-    NEEDS WORK:
-        - random
     '''
     while True:
         print('\033[32m==========> NUMPY MENU <==========\033[0m')
@@ -203,7 +201,7 @@ def numpyrandommenu():
             break
         if menuin == '3':
             clear()
-            print('choice')
+            numpyrandomchoicehelp()
             break
         elif menuin.lower() == 'n':
             clear()
@@ -296,13 +294,14 @@ def numpyrandomchoicehelp():
         print('\033[35mINPUT:\033[0m np.random.choice([1, \'yeet\', 3], [2, 5], p=[0.2, 0.8, 0]])')
         print('\033[35mOUTPUT:\033[0m\n', np.random.choice([1, 'yeet', 3], [2, 5], p=[.2, .8, 0]))
         menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
-        ### CHECKPOINT ###
         if menuin.lower() == 'y':
             clear()
-            print('\033[35mRaw Syntax:\033[0m np.random.random([\033[36m#\033[0m, \033[36m#\033[0m])')
-            print('\033[35mAliased Syntax:\033[0m np.random.random([\033[36m<Rows>\033[0m, \033[36m<Columns>\033[0m])')
-            print('\033[35mnp.random.random:\033[0m Function that randomly generates a percentage from 0 to 1 from the numpy.random function')
+            print('\033[35mRaw Syntax:\033[0m np.random.choice([\033[36m# or str\033[0m], [\033[36m#, #\033[0m], p=[\033[36m#\033[0m])')
+            print('\033[35mAliased Syntax:\033[0m np.random.random([\033[36m<List of values>\033[0m], [\033[36m<Rows>\033[0m, \033[36m<Columns>\033[0m], p=[\033[36m<Percent chance in order of list of values>\033[0m])')
+            print('\033[35mnp.random.choice:\033[0m Function that selects from the list of values by their inputted percent chance from the numpy.random function')
+            print('\033[35m[<List of values>]):\033[0m Values that will be randomly selected (Can be int, str, float)')
             print('\033[35m[<Rows>, <Columns>]):\033[0m Defines the rows and columns to generate an array by')
+            print('\033[35mp=[#]):\033[0m Defines the percent chance of a value in order from left to right in list of values')
             print('\033[33mReturning to Numpy Random Menu\033[0m\n')
             numpyrandommenu()
             break
