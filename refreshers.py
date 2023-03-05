@@ -429,7 +429,7 @@ def pandasCreateDataFrame():
         elif menuin.lower() == 'n':
             clear()
             print('\033[33mReturning to Pandas Menu\033[0m')
-            numpyMenu()
+            pandasMenu()
             break
         elif menuin.lower() == 'm':
             clear()
