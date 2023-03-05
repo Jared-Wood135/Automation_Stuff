@@ -3,20 +3,22 @@
 # =======================================================================================================
 
 '''
-1. Orientation
-2. Imports
-3. Main Menu
-4. Numpy
-    1. Numpy Random Menu
-        1. randint
-        2. random
-        3. choice
-5. Pandas
-6. Matplotlib.pyplot
-7. Seaborn
-8. Scipy.Stats
-9. Clear Terminal Function
-10. Start Program
+D = DONE
+# = IN-PROGRESS
+    1. Orientation
+    2. Imports
+    3. Main Menu
+#    4. Numpy
+##        1. Numpy Random Menu
+D            1. randint 
+D            2. random
+###            3. choice
+    5. Pandas
+    6. Matplotlib.pyplot
+    7. Seaborn
+    8. Scipy.Stats
+    9. Clear Terminal Function
+    10. Start Program
 '''
 
 # =======================================================================================================
@@ -92,6 +94,12 @@ This is used specifically to clear the terminal as you navigate this script
 def menu():
     '''
     Opens a menu for easier navigation when looking for specific information...
+    NEEDS WORK:
+        - numpy
+        - pandas
+        - matplotlib.pyplot
+        - seaborn
+        - scipy.stats
     '''
     while True:
         print('\033[32m==========> MAIN MENU <==========\033[0m')
@@ -140,6 +148,8 @@ def menu():
 def numpymenu():
     '''
     Menu of numpy specific help...
+    NEEDS WORK:
+        - random
     '''
     while True:
         print('\033[32m==========> NUMPY MENU <==========\033[0m')
@@ -148,7 +158,8 @@ def numpymenu():
         print('\033[36m(Q)\033[0m Exit Program')
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
-            numpyrandom()
+            clear()
+            numpyrandommenu()
             break
         elif menuin.lower() == 'm':
             clear()
@@ -169,6 +180,9 @@ def numpymenu():
 def numpyrandommenu():
     '''
     Help menu for numpy's randomizer functions...
+    NEEDS WORK:
+        - random
+        - choice
     '''
     while True:
         print('\033[32m==========> NUMPY-RANDOM MENU <==========\033[0m')
@@ -180,12 +194,15 @@ def numpyrandommenu():
         print('\033[36m(Q)\033[0m Exit Program')
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
-            print('randint')
+            clear()
+            numpyrandomrandinthelp()
             break
         if menuin == '2':
-            print('random')
+            clear()
+            numpyrandomrandomhelp()
             break
         if menuin == '3':
+            clear()
             print('choice')
             break
         elif menuin.lower() == 'n':
@@ -210,12 +227,93 @@ def numpyrandommenu():
 
 def numpyrandomrandinthelp():
     '''
-    Gives help for numpy's randint function...
+    Gives help for numpy's random randint function...
     '''
-    print('\033[35mRaw Syntax:\033[0m np.random.randint(#, #, [#, #])')
-    print('\033[35mFilled Syntax:\033[0m np.random.randint(1, 6, [5, 10])')
-    np.random.randint(1, 6, [5, 10])
+    while True:
+        print('\033[32m==========> NUMPY-RANDOM-RANDINT HELP <==========\033[0m')
+        print('\033[35mRaw Syntax:\033[0m np.random.randint(#, #, [#, #])')
+        print('\033[35mINPUT:\033[0m np.random.randint(1, 6, [2, 5])')
+        print('\033[35mOUTPUT:\033[0m\n', np.random.randint(1, 6, [2, 5]))
+        menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
+        if menuin.lower() == 'y':
+            clear()
+            print('\033[35mRaw Syntax:\033[0m np.random.randint(\033[36m#\033[0m, \033[36m#\033[0m, [\033[36m#\033[0m, \033[36m#\033[0m])')
+            print('\033[35mAliased Syntax:\033[0m np.random.randint(\033[36m<Min Range>\033[0m, \033[36m<Max Range>\033[0m, [\033[36m<Rows>\033[0m, \033[36m<Columns>\033[0m])')
+            print('\033[35mnp.random.randint:\033[0m Function that randomly chooses an integer from the numpy.random function')
+            print('\033[35m(<Min Range>, <Max Range>,:\033[0m Defines the min then max range values. (MAX VALUE IS EXCLUSIVE)')
+            print('\033[35m[<Rows>, <Columns>]):\033[0m Defines the rows and columns to generate an array by')
+            print('\033[33mReturning to Numpy Random Menu\033[0m\n')
+            numpyrandommenu()
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Numpy Random Menu\033[0m')
+            numpyrandommenu()
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
 
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def numpyrandomrandomhelp():
+    '''
+    Gives help for numpy's random random function...
+    '''
+    while True:
+        print('\033[32m==========> NUMPY-RANDOM-RANDOM HELP <==========\033[0m')
+        print('\033[35mRaw Syntax:\033[0m np.random.random([#, #])')
+        print('\033[35mINPUT:\033[0m np.random.random([2, 5])')
+        print('\033[35mOUTPUT:\033[0m\n', np.random.random([2, 5]))
+        menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
+        if menuin.lower() == 'y':
+            clear()
+            print('\033[35mRaw Syntax:\033[0m np.random.random([\033[36m#\033[0m, \033[36m#\033[0m])')
+            print('\033[35mAliased Syntax:\033[0m np.random.random([\033[36m<Rows>\033[0m, \033[36m<Columns>\033[0m])')
+            print('\033[35mnp.random.random:\033[0m Function that randomly generates a percentage from 0 to 1 from the numpy.random function')
+            print('\033[35m[<Rows>, <Columns>]):\033[0m Defines the rows and columns to generate an array by')
+            print('\033[33mReturning to Numpy Random Menu\033[0m\n')
+            numpyrandommenu()
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Numpy Random Menu\033[0m')
+            numpyrandommenu()
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+def numpyrandomchoicehelp():
+    '''
+    Gives help for numpy's random choice function...
+    '''
+    while True:
+        print('\033[32m==========> NUMPY-RANDOM-CHOICE HELP <==========\033[0m')
+        print('\033[35mRaw Syntax:\033[0m np.random.choice([# or str], [#, #], p=[#])')
+        print('\033[35mINPUT:\033[0m np.random.choice([1, \'yeet\', 3], [2, 5], p=[0.2, 0.8, 0]])')
+        print('\033[35mOUTPUT:\033[0m\n', np.random.choice([1, 'yeet', 3], [2, 5], p=[.2, .8, 0]))
+        menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
+        ### CHECKPOINT ###
+        if menuin.lower() == 'y':
+            clear()
+            print('\033[35mRaw Syntax:\033[0m np.random.random([\033[36m#\033[0m, \033[36m#\033[0m])')
+            print('\033[35mAliased Syntax:\033[0m np.random.random([\033[36m<Rows>\033[0m, \033[36m<Columns>\033[0m])')
+            print('\033[35mnp.random.random:\033[0m Function that randomly generates a percentage from 0 to 1 from the numpy.random function')
+            print('\033[35m[<Rows>, <Columns>]):\033[0m Defines the rows and columns to generate an array by')
+            print('\033[33mReturning to Numpy Random Menu\033[0m\n')
+            numpyrandommenu()
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Numpy Random Menu\033[0m')
+            numpyrandommenu()
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
 
 # =======================================================================================================
 # Numpy END
