@@ -15,9 +15,9 @@ D            2. random
 D            3. choice
 #    5. Pandas
 ##        1. Creating Dataframes
-###            1. Dictionary
-            2. SQL
-            3. URL Files
+D            1. Dictionary
+D            2. SQL
+###            3. Read Files
         2. Navigate Dataframes
             1. showDoc
             2. info
@@ -130,11 +130,11 @@ def menu():
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
             clear()
-            numpymenu()
+            numpyMenu()
             break
         elif menuin == '2':
             clear()
-            print('pandas')
+            pandasMenu()
             break
         elif menuin == '3':
             clear()
@@ -163,19 +163,20 @@ def menu():
 # Numpy START
 # =======================================================================================================
 
-def numpymenu():
+def numpyMenu():
     '''
     Menu of numpy specific help...
     '''
     while True:
         print('\033[32m==========> NUMPY MENU <==========\033[0m')
+        print("\033[32mMenu of numpy specific help...\033[0m")
         print('\033[36m(1)\033[0m random')
         print('\033[36m(M)\033[0m Return to Main Menu')
         print('\033[36m(Q)\033[0m Exit Program')
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
             clear()
-            numpyrandommenu()
+            numpyRandomMenu()
             break
         elif menuin.lower() == 'm':
             clear()
@@ -197,12 +198,13 @@ def numpymenu():
 # Numpy Random START
 # =======================================================================================================
 
-def numpyrandommenu():
+def numpyRandomMenu():
     '''
     Help menu for numpy's randomizer functions...
     '''
     while True:
         print('\033[32m==========> NUMPY-RANDOM MENU <==========\033[0m')
+        print("\033[32mHelp menu for numpy's randomizer functions...\033[0m")
         print('\033[36m(1)\033[0m randint')
         print('\033[36m(2)\033[0m random')
         print('\033[36m(3)\033[0m choice')
@@ -212,20 +214,20 @@ def numpyrandommenu():
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
             clear()
-            numpyrandomrandinthelp()
+            numpyRandomRandintHelp()
             break
         if menuin == '2':
             clear()
-            numpyrandomrandomhelp()
+            numpyRandomRandomHelp()
             break
         if menuin == '3':
             clear()
-            numpyrandomchoicehelp()
+            numpyRandomChoiceHelp()
             break
         elif menuin.lower() == 'n':
             clear()
             print('\033[33mReturning to Numpy Menu\033[0m')
-            numpymenu()
+            numpyMenu()
             break
         elif menuin.lower() == 'm':
             clear()
@@ -246,12 +248,13 @@ def numpyrandommenu():
 # Numpy Random Randint START
 # =======================================================================================================
 
-def numpyrandomrandinthelp():
+def numpyRandomRandintHelp():
     '''
     Gives help for numpy's random randint function...
     '''
     while True:
         print('\033[32m==========> NUMPY-RANDOM-RANDINT HELP <==========\033[0m')
+        print("\033[32mGives help for numpy's random randint function...\033[0m")
         print('\033[35mRaw Syntax:\033[0m np.random.randint(#, #, [#, #])')
         print('\033[35mINPUT:\033[0m np.random.randint(1, 6, [2, 5])')
         print('\033[35mOUTPUT:\033[0m\n', np.random.randint(1, 6, [2, 5]))
@@ -264,12 +267,12 @@ def numpyrandomrandinthelp():
             print('\033[35m(<Min Range>, <Max Range>,:\033[0m Defines the min then max range values. (MAX VALUE IS EXCLUSIVE)')
             print('\033[35m[<Rows>, <Columns>]):\033[0m Defines the rows and columns to generate an array by')
             print('\033[33mReturning to Numpy Random Menu\033[0m\n')
-            numpyrandommenu()
+            numpyRandomMenu()
             break
         elif menuin.lower() == 'n':
             clear()
             print('\033[33mReturning to Numpy Random Menu\033[0m')
-            numpyrandommenu()
+            numpyRandomMenu()
             break
         else:
             clear()
@@ -281,12 +284,13 @@ def numpyrandomrandinthelp():
 # Numpy Random Random START
 # =======================================================================================================
 
-def numpyrandomrandomhelp():
+def numpyRandomRandomHelp():
     '''
     Gives help for numpy's random random function...
     '''
     while True:
         print('\033[32m==========> NUMPY-RANDOM-RANDOM HELP <==========\033[0m')
+        print("\033[32mGives help for numpy's random random function...\033[0m")
         print('\033[35mRaw Syntax:\033[0m np.random.random([#, #])')
         print('\033[35mINPUT:\033[0m np.random.random([2, 5])')
         print('\033[35mOUTPUT:\033[0m\n', np.random.random([2, 5]))
@@ -298,12 +302,12 @@ def numpyrandomrandomhelp():
             print('\033[35mnp.random.random:\033[0m Function that randomly generates a percentage from 0 to 1 from the numpy.random function')
             print('\033[35m[<Rows>, <Columns>]):\033[0m Defines the rows and columns to generate an array by')
             print('\033[33mReturning to Numpy Random Menu\033[0m\n')
-            numpyrandommenu()
+            numpyRandomMenu()
             break
         elif menuin.lower() == 'n':
             clear()
             print('\033[33mReturning to Numpy Random Menu\033[0m')
-            numpyrandommenu()
+            numpyRandomMenu()
             break
         else:
             clear()
@@ -315,12 +319,13 @@ def numpyrandomrandomhelp():
 # Numpy Random Choice START
 # =======================================================================================================
 
-def numpyrandomchoicehelp():
+def numpyRandomChoiceHelp():
     '''
     Gives help for numpy's random choice function...
     '''
     while True:
         print('\033[32m==========> NUMPY-RANDOM-CHOICE HELP <==========\033[0m')
+        print("\033[32mGives help for numpy's random choice function...\033[0m")
         print('\033[35mRaw Syntax:\033[0m np.random.choice([# or str], [#, #], p=[#])')
         print('\033[35mINPUT:\033[0m np.random.choice([1, \'yeet\', 3], [2, 5], p=[0.2, 0.8, 0]])')
         print('\033[35mOUTPUT:\033[0m\n', np.random.choice([1, 'yeet', 3], [2, 5], p=[.2, .8, 0]))
@@ -334,12 +339,12 @@ def numpyrandomchoicehelp():
             print('\033[35m[<Rows>, <Columns>]):\033[0m Defines the rows and columns to generate an array by')
             print('\033[35mp=[#]):\033[0m Defines the percent chance of a value in order from left to right in list of values')
             print('\033[33mReturning to Numpy Random Menu\033[0m\n')
-            numpyrandommenu()
+            numpyRandomMenu()
             break
         elif menuin.lower() == 'n':
             clear()
             print('\033[33mReturning to Numpy Random Menu\033[0m')
-            numpyrandommenu()
+            numpyRandomMenu()
             break
         else:
             clear()
@@ -351,12 +356,13 @@ def numpyrandomchoicehelp():
 # Pandas START
 # =======================================================================================================
 
-def pandasmenu():
+def pandasMenu():
     '''
     Menu of pandas specific help...
     '''
     while True:
         print('\033[32m==========> PANDAS MENU <==========\033[0m')
+        print("\033[32mMenu of pandas specific help...\033[0m")
         print('\033[36m(1)\033[0m Creating Dataframes')
         print('\033[36m(2)\033[0m Navigate Dataframes')
         print('\033[36m(3)\033[0m Manipulate Dataframes')
@@ -365,7 +371,7 @@ def pandasmenu():
         menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
         if menuin == '1':
             clear()
-            print('Creating Dataframes')
+            pandasCreateDataFrame()
             break
         if menuin == '2':
             clear()
@@ -394,7 +400,144 @@ def pandasmenu():
 # Pandas Creating Dataframe START
 # =======================================================================================================
 
+def pandasCreateDataFrame():
+    '''
+    Help menu for pandas's dataframe creation...
+    '''
+    while True:
+        print('\033[32m==========> PANDAS-CREATE DATAFRAME MENU <==========\033[0m')
+        print("\033[32mHelp menu for pandas's dataframe creation...\033[0m")
+        print('\033[36m(1)\033[0m dictionary')
+        print('\033[36m(2)\033[0m sql')
+        print('\033[36m(3)\033[0m read file')
+        print('\033[36m(N)\033[0m Return to Pandas Menu')
+        print('\033[36m(M)\033[0m Return to Main Menu')
+        print('\033[36m(Q)\033[0m Exit Program')
+        menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
+        if menuin == '1':
+            clear()
+            pandasCreateDataFrameDict()
+            break
+        if menuin == '2':
+            clear()
+            pandasCreateDataFrameSQL()
+            break
+        if menuin == '3':
+            clear()
+            print('read file')
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Pandas Menu\033[0m')
+            numpyMenu()
+            break
+        elif menuin.lower() == 'm':
+            clear()
+            print('\033[33mReturning to Main Menu\033[0m')
+            menu()
+            break
+        elif menuin.lower() == 'q':
+            clear()
+            print('\033[35mHope it helped!\033[0m')
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
 
+# =======================================================================================================
+# Pandas Creating Dataframe END
+# Pandas Creating Dataframe TO Pandas Creating Dataframe Dictionary
+# Pandas Creating Dataframe Dictionary START
+# =======================================================================================================
+
+def pandasCreateDataFrameDict():
+    '''
+    Gives help for pandas's dataframe creation with dictionaries...
+    '''
+    while True:
+        testdict = {
+            'fruits' : ['apple', 'banana', 'orange'],
+            'quantity' : [5, 10, 15],
+            'cost' : [0.98, 1.14, 0.52]
+        }
+        print('\033[32m==========> PANDAS-CREATE DATAFRAME-DICTIONARY HELP <==========\033[0m')
+        print("\033[32mGives help for panda's dataframe creation with dictionaries...\033[0m")
+        print('\033[35mRaw Syntax:\033[0m pd.DataFrame(dict)')
+        print("\033[35mtestdict:\033[0m\ntestdict = {\n'fruits' : ['apple', 'banana', 'orange'],\n'quantity' : [5, 10, 15],\n'cost' : [0.98, 1.14, 0.52]\n}")
+        print('\033[35mINPUT:\033[0m pd.DataFrame(testdict)')
+        print('\033[35mOUTPUT:\033[0m\n', pd.DataFrame(testdict))
+        menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
+        if menuin.lower() == 'y':
+            clear()
+            print('\033[35mRaw Syntax:\033[0m pd.DataFrame(dict)')
+            print('\033[35mAliased Syntax:\033[0m pd.DataFrame(\033[36m<Dictionary Name>\033[0m)')
+            print('\033[35mpd.DataFrame:\033[0m Function that creates a pandas dataframe')
+            print('\033[35m(<Dictionary Name>):\033[0m Defines the dictionary to create a dataframe from')
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m\n')
+            pandasCreateDataFrame()
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m')
+            pandasCreateDataFrame()
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+
+# =======================================================================================================
+# Pandas Creating Dataframe Dictionary END
+# Pandas Creating Dataframe Dictionary TO Pandas Creating Dataframe SQL
+# Pandas Creating Dataframe SQL START
+# =======================================================================================================
+
+def pandasCreateDataFrameSQL():
+    '''
+    Gives help for pandas's dataframe creation with SQL databases...
+    '''
+    while True:
+        query = (
+            '''
+            SELECT *
+            FROM employees
+            '''
+        )
+        print('\033[32m==========> PANDAS-CREATE DATAFRAME-SQL HELP <==========\033[0m')
+        print("\033[32mGives help for panda's dataframe creation with SQL databases...\033[0m")
+        print('\033[35mRaw Syntax:\033[0m pd.read_sql(query, url)')
+        print("\033[35mquery:\033[0m\nquery = (\n'''\nSELECT *\nFROM employees\n'''\n)")
+        print("\033[35murl:\033[0m url = <Your unique URL connection to the SQL database>")
+        print('\033[35mINPUT:\033[0m pd.read_sql(query, url)')
+        print('\033[35mOUTPUT:\033[0m Dataframe with SQL Query output')
+        menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
+        if menuin.lower() == 'y':
+            clear()
+            print('\033[35mRaw Syntax:\033[0m pd.read_sql(query, url)')
+            print('\033[35mAliased Syntax:\033[0m pd.read_sql(\033[36m<SQL Query>\033[0m, \033[36m<URL Connection To SQL>\033[0m)')
+            print('\033[35mpd.read_sql:\033[0m Function that creates a pandas dataframe by reading a sql query')
+            print('\033[35m(<SQL Query>,:\033[0m Uses the SQL Query output to create the pandas dataframe')
+            print('\033[35m<URL Connection To SQL>):\033[0m Unique URL in order to connect to desired SQL database')
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m\n')
+            pandasCreateDataFrame()
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m')
+            pandasCreateDataFrame()
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+
+# =======================================================================================================
+# Pandas Creating Dataframe SQL END
+# Pandas Creating Dataframe SQL TO Pandas Creating Dataframe Read Files
+# Pandas Creating Dataframe Read Files START
+# =======================================================================================================
+
+def pandasCreateDataFrameReadFile():
+    print('Checkpoint')
+    ### CHECKPOINT ###
 
 # =======================================================================================================
 # Pandas END
