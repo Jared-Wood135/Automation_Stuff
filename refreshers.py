@@ -8,12 +8,30 @@ D = DONE
     1. Orientation
     2. Imports
     3. Main Menu
-#    4. Numpy
+D    4. Numpy
 D        1. Numpy Random Menu
 D            1. randint 
 D            2. random
 D            3. choice
-    5. Pandas
+#    5. Pandas
+##        1. Creating Dataframes
+###            1. Dictionary
+            2. SQL
+            3. URL Files
+        2. Navigate Dataframes
+            1. showDoc
+            2. info
+            3. describe
+            4. dtype
+        3. Manipulate Dataframes
+            1. Reset index
+            2. Columns
+                1. delete
+                2. drop
+                3. rename
+            3. Groupby
+            4. Joins
+            5. Aggregate
     6. Matplotlib.pyplot
     7. Seaborn
     8. Scipy.Stats
@@ -116,19 +134,19 @@ def menu():
             break
         elif menuin == '2':
             clear()
-            print('Works')
+            print('pandas')
             break
         elif menuin == '3':
             clear()
-            print('Works')
+            print('matplotlib.pyplot')
             break
         elif menuin == '4':
             clear()
-            print('Works')
+            print('seaborn')
             break
         elif menuin == '5':
             clear()
-            print('Works')
+            print('scipy.stats')
             break
         elif menuin.lower() == 'q':
             clear()
@@ -182,9 +200,6 @@ def numpymenu():
 def numpyrandommenu():
     '''
     Help menu for numpy's randomizer functions...
-    NEEDS WORK:
-        - random
-        - choice
     '''
     while True:
         print('\033[32m==========> NUMPY-RANDOM MENU <==========\033[0m')
@@ -334,6 +349,49 @@ def numpyrandomchoicehelp():
 # Numpy Random Choice END
 # Numpy Random Choice TO Pandas
 # Pandas START
+# =======================================================================================================
+
+def pandasmenu():
+    '''
+    Menu of pandas specific help...
+    '''
+    while True:
+        print('\033[32m==========> PANDAS MENU <==========\033[0m')
+        print('\033[36m(1)\033[0m Creating Dataframes')
+        print('\033[36m(2)\033[0m Navigate Dataframes')
+        print('\033[36m(3)\033[0m Manipulate Dataframes')
+        print('\033[36m(M)\033[0m Return to Main Menu')
+        print('\033[36m(Q)\033[0m Exit Program')
+        menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
+        if menuin == '1':
+            clear()
+            print('Creating Dataframes')
+            break
+        if menuin == '2':
+            clear()
+            print('Navigate Dataframes')
+            break
+        if menuin == '3':
+            clear()
+            print('Manipulate Dataframes')
+            break
+        elif menuin.lower() == 'm':
+            clear()
+            print('\033[33mReturning to Main Menu\033[0m')
+            menu()
+            break
+        elif menuin.lower() == 'q':
+            clear()
+            print('\033[35mHope it helped!\033[0m')
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+
+# =======================================================================================================
+# Pandas END
+# Pandas TO Pandas Creating Dataframe
+# Pandas Creating Dataframe START
 # =======================================================================================================
 
 
