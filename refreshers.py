@@ -14,12 +14,12 @@ D            1. randint
 D            2. random
 D            3. choice
 #    5. Pandas
-##        1. Creating Dataframes
+D        1. Creating Dataframes
 D            1. Dictionary
 D            2. SQL
-###            3. Read Files
-        2. Navigate Dataframes
-            1. showDoc
+D            3. Read Files
+##        2. Navigate Dataframes
+###            1. showDoc
             2. info
             3. describe
             4. dtype
@@ -102,6 +102,14 @@ import os
 '''
 This is used specifically to clear the terminal as you navigate this script
 '''
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+from pydataset import data
+'''
+This is used specifically to demonstrate databases and give better visuals of some explanations
+'''
+
 
 # =======================================================================================================
 # Imports END
@@ -424,7 +432,7 @@ def pandasCreateDataFrame():
             break
         if menuin == '3':
             clear()
-            print('read file')
+            pandasCreateDataFrameReadFile()
             break
         elif menuin.lower() == 'n':
             clear()
@@ -536,8 +544,35 @@ def pandasCreateDataFrameSQL():
 # =======================================================================================================
 
 def pandasCreateDataFrameReadFile():
-    print('Checkpoint')
-    ### CHECKPOINT ###
+    '''
+    Gives help for pandas's dataframe creation with reading external files...
+    '''
+    while True:
+        print('\033[32m==========> PANDAS-CREATE DATAFRAME-READ FILE HELP <==========\033[0m')
+        print("\033[32mGives help for pandas's dataframe creation with reading external files...\033[0m")
+        print("\033[35mRaw Syntax:\033[0m pd.read_<file-type>(<url>, sep='<seperator>')")
+        print("\033[35murl:\033[0m url = <URL connection to file>")
+        print("\033[35mINPUT:\033[0m pd.read_csv(<url>, sep=',')")
+        print('\033[35mOUTPUT:\033[0m Dataframe with file values seperated by a comma')
+        menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
+        if menuin.lower() == 'y':
+            clear()
+            print("\033[35mRaw Syntax:\033[0m pd.read_<file-type>(<url>, sep='<seperator>')")
+            print("\033[35mAliased Syntax:\033[0m pd.read_<file-type>(\033[36m<url>\033[0m, \033[36msep='<seperator>'\033[0m)")
+            print('\033[35mpd.read_<file-type>:\033[0m Function that creates a pandas dataframe by reading a specific file type')
+            print('\033[35m(<url>,:\033[0m Uses the url to locate the file you want')
+            print("\033[35msep='<seperator>'):\033[0m Seperates the values in the file by a specific seperator")
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m\n')
+            pandasCreateDataFrame()
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m')
+            pandasCreateDataFrame()
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
 
 # =======================================================================================================
 # Pandas END
