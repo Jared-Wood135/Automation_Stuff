@@ -19,10 +19,9 @@ D            1. Dictionary
 D            2. SQL
 D            3. Read Files
 ##        2. Navigate Dataframes
-###            1. showDoc
-            2. info
-            3. describe
-            4. dtype
+###            1. info
+            2. describe
+            3. dtype
         3. Manipulate Dataframes
             1. Reset index
             2. Columns
@@ -121,7 +120,6 @@ def menu():
     '''
     Opens a menu for easier navigation when looking for specific information...
     NEEDS WORK:
-        - numpy
         - pandas
         - matplotlib.pyplot
         - seaborn
@@ -367,6 +365,9 @@ def numpyRandomChoiceHelp():
 def pandasMenu():
     '''
     Menu of pandas specific help...
+    NEEDS WORK:
+        - Navigate Dataframe
+        - Manipulate Dataframe
     '''
     while True:
         print('\033[32m==========> PANDAS MENU <==========\033[0m')
@@ -383,7 +384,7 @@ def pandasMenu():
             break
         if menuin == '2':
             clear()
-            print('Navigate Dataframes')
+            pandasNavigateDataFrame()
             break
         if menuin == '3':
             clear()
@@ -550,6 +551,104 @@ def pandasCreateDataFrameReadFile():
     while True:
         print('\033[32m==========> PANDAS-CREATE DATAFRAME-READ FILE HELP <==========\033[0m')
         print("\033[32mGives help for pandas's dataframe creation with reading external files...\033[0m")
+        print("\033[35mRaw Syntax:\033[0m pd.read_<file-type>(<url>, sep='<seperator>')")
+        print("\033[35murl:\033[0m url = <URL connection to file>")
+        print("\033[35mINPUT:\033[0m pd.read_csv(<url>, sep=',')")
+        print('\033[35mOUTPUT:\033[0m Dataframe with file values seperated by a comma')
+        menuin = input('\033[33mWould you like an explanation? (Y/N)\033[0m\n')
+        if menuin.lower() == 'y':
+            clear()
+            print("\033[35mRaw Syntax:\033[0m pd.read_<file-type>(<url>, sep='<seperator>')")
+            print("\033[35mAliased Syntax:\033[0m pd.read_<file-type>(\033[36m<url>\033[0m, \033[36msep='<seperator>'\033[0m)")
+            print('\033[35mpd.read_<file-type>:\033[0m Function that creates a pandas dataframe by reading a specific file type')
+            print('\033[35m(<url>,:\033[0m Uses the url to locate the file you want')
+            print("\033[35msep='<seperator>'):\033[0m Seperates the values in the file by a specific seperator")
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m\n')
+            pandasCreateDataFrame()
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Pandas Create Dataframe Menu\033[0m')
+            pandasCreateDataFrame()
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+
+# =======================================================================================================
+# Pandas Creating Dataframe Read Files END
+# Pandas Creating Dataframe Read Files TO Pandas Navigate Dataframe
+# Pandas Navigate Dataframe START
+# =======================================================================================================
+
+def pandasNavigateDataFrame():
+    '''
+    Help menu for pandas's dataframe navigation...
+    NEEDS WORK:
+        1. showDoc
+        2. info
+        3. describe
+        4. dtype
+    '''
+    while True:
+        print('\033[32m==========> PANDAS-NAVIGATE DATAFRAME MENU <==========\033[0m')
+        print("\033[32mHelp menu for pandas's dataframe navigation...\033[0m")
+        print('\033[36m(1)\033[0m showDoc')
+        print('\033[36m(2)\033[0m info')
+        print('\033[36m(3)\033[0m describe')
+        print('\033[36m(4)\033[0m dtype')
+        print('\033[36m(N)\033[0m Return to Pandas Menu')
+        print('\033[36m(M)\033[0m Return to Main Menu')
+        print('\033[36m(Q)\033[0m Exit Program')
+        menuin = input('\n\033[33mWhat do you want help with?\033[0m\n')
+        if menuin == '1':
+            clear()
+            print('showDoc')
+            break
+        if menuin == '2':
+            clear()
+            print('info')
+            break
+        if menuin == '3':
+            clear()
+            print('describe')
+            break
+        if menuin == '4':
+            clear()
+            print('dtype')
+            break
+        elif menuin.lower() == 'n':
+            clear()
+            print('\033[33mReturning to Pandas Menu\033[0m')
+            pandasMenu()
+            break
+        elif menuin.lower() == 'm':
+            clear()
+            print('\033[33mReturning to Main Menu\033[0m')
+            menu()
+            break
+        elif menuin.lower() == 'q':
+            clear()
+            print('\033[35mHope it helped!\033[0m')
+            break
+        else:
+            clear()
+            print('\033[31mInvalid Input\033[0m')
+
+# =======================================================================================================
+# Pandas Navigate Dataframe END
+# Pandas Navigate Dataframe TO Pandas Navigate Dataframe Info
+# Pandas Navigate Dataframe Info START
+# =======================================================================================================
+
+### CHECKPOINT ###
+def pandasNavigateDataframeInfo():
+    '''
+    Gives help for pandas's dataframe navigation with info...
+    '''
+    while True:
+        print('\033[32m==========> PANDAS-NAVIGATE DATAFRAME-INFO HELP <==========\033[0m')
+        print("\033[32mGives help for pandas's dataframe navigation with showDoc...\033[0m")
         print("\033[35mRaw Syntax:\033[0m pd.read_<file-type>(<url>, sep='<seperator>')")
         print("\033[35murl:\033[0m url = <URL connection to file>")
         print("\033[35mINPUT:\033[0m pd.read_csv(<url>, sep=',')")
