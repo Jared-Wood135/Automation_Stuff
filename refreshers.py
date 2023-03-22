@@ -56,13 +56,14 @@ matplotlib.pyplot, seaborn, and scipy.stats libraries...
 # Imports START
 # =======================================================================================================
 
+# Basic vectorization/dataframe purposes:
+# - numpy (np)
+# - pandas (pd)
 import numpy as np
 '''
 'numpy' is used for vectorization, arrays, and probabilities...
 Common alias is 'np'...
 '''
-
-# ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import pandas as pd
 '''
@@ -73,14 +74,15 @@ Common alias is 'pd'...
 
 # ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+# Visualizations and graphing purposes:
+# - matplotlib.pyplot (plt)
+# - seaborn (sns)
 import matplotlib.pyplot as plt
 '''
 'matplotlib.pyplot' is a sub-library of 'matplotlib' and is used for creating visualizations
 of various data...
 Common alias is 'plt'...
 '''
-
-# ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import seaborn as sns
 '''
@@ -90,6 +92,8 @@ Common alias is 'sns'...
 
 # ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+# Statistical testing purposes:
+# - scipy.stats as stats
 import scipy.stats as stats
 '''
 'scipy.stats' is a sub-library of 'scipy' and is used to obtain statistical information...
@@ -97,6 +101,40 @@ import scipy.stats as stats
 
 # ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+# Useful tools to use with modeling:
+'''
+- Scores/evaluations
+    - from sklearn.metrics import classification_report
+        - Used to get accuracy, precision, recall, f-1, and support scores of model
+    - from sklearn.metrics import confusion_matrix
+        - Used to get a confusion matrix of TP, FP, TN, FN
+'''
+
+
+# Classification modeling purposes:
+'''
+- Decision Tree Classifier
+    - sklearn.tree import DecisionTreeClassifier
+        - Used for Decision Tree model machine learning type
+    - sklearn.tree import export_text
+        - Used to export text of what the model is doing
+    - sklearn.tree import plot_tree
+        - Used to visualize what the model is doing
+- Random Forest Classifier
+    - sklearn.ensemble import RandomForestClassifier
+        - Used for Random Forest model machine learning type
+- K-Nearest Neighbors
+    - sklearn.neighbors import KNeighborsClassifier
+        - Used for K-Nearest Neighbors model machine learning type
+- Logistic Regression
+    - sklearn.linear_model import LogisticRegression
+        - Used for Logistic Regression model machine learning
+'''
+
+# ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+# To have functionality similar to command line interface (CLI)
+# - os
 import os
 '''
 This is used specifically to clear the terminal as you navigate this script
@@ -104,6 +142,8 @@ This is used specifically to clear the terminal as you navigate this script
 
 # ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+# For example/play datasets:
+# - pydataset
 from pydataset import data
 '''
 This is used specifically to demonstrate databases and give better visuals of some explanations
