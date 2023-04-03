@@ -10,6 +10,7 @@
     b. sample_dataframe
 4. Regression Modeling
     a. regression_prediction
+    b. get_eval_stats
 '''
 
 # =======================================================================================================
@@ -121,6 +122,51 @@ def regression_prediction(train, x_cols, y_col):
 
 # =======================================================================================================
 # regression_prediction END
-# regression_prediction TO 
+# regression_prediction TO get_eval_stats
+# get_eval_stats START
+# =======================================================================================================
+
+def get_eval_stats(df, actual_col, baseline_col, prediction_col):
+    '''
+    Takes in 4 inputs and returns summary evaluation statistics for the baseline, the prediction,
+    and the summary evaluation of the difference between the two...
+
+    INPUT VALUES:
+    df = Pandas dataframe name
+    actual_col = Column name containing actual values
+    baseline_col = Column name containing baseline prediction of actual_col
+    prediction_col = Column name containing predicted values of actual_col
+
+    OUTPUT VALUES:
+    3 Tables with summary statistics for the baseline, prediction, and difference
+    (Stats like SSE, ESS, TSS, MSE, RMSE, R2, etc.)
+    '''
+    baseline = df[actual_col].mean()
+    base_residual = df[actual_col] - baseline
+    pred_residual = df[actual_col] - df[prediction_col]
+    SSE_base = (base_residual ** 2).sum()
+    SSE_pred = (pred_residual ** 2).sum()
+    SSE_diff = int(SSE_pred - SSE_base)
+    ESS_base = sum((df[baseline_col] - df[actual_col]) ** 2)
+    ESS_pred = sum((df[prediction_col] - df[actual_col]) ** 2)
+    ESS_diff = int(ESS_pred - ESS_base)
+    TSS_base = SSE_base + ESS_base
+    TSS_pred = SSE_pred + ESS_pred
+    TSS_diff = int(TSS_pred - TSS_base)
+    MSE_base = SSE_base / len(df)
+    MSE_pred = SSE_pred / len(df)
+    MSE_diff = int(MSE_pred - MSE_base)
+    RMSE_base = MSE_base ** .5
+    RMSE_pred = MSE_pred ** .5
+    RMSE_diff = int(RMSE_pred - RMSE_base)
+    R2_base = 1 - (SSE_base/TSS_base)
+    R2_pred = 1 - (SSE_pred/SSE_base)
+    print(f'\033[35m===== {baseline_col} =====\033[0m\n\033[32mSSE:\033[0m {SSE_base:.2f}\n\033[32mESS:\033[0m {ESS_base:.2f}\n\033[32mTSS:\033[0m {TSS_base:.2f}\n\033[32mMSE:\033[0m {MSE_base:.2f}\n\033[32mRMSE:\033[0m {RMSE_base:.2f}\n')
+    print(f'\033[35m===== {prediction_col} =====\033[0m\n\033[32mSSE:\033[0m {SSE_pred:.2f}\n\033[32mESS:\033[0m {ESS_pred:.2f}\n\033[32mTSS:\033[0m {TSS_pred:.2f}\n\033[32mMSE:\033[0m {MSE_pred:.2f}\n\033[32mRMSE:\033[0m {RMSE_pred:.2f}\n\033[32mR2:\033[0m {R2_pred:.2f}\n')
+    print(f'\033[35m===== {prediction_col} - {baseline_col} =====\033[0m\n\033[32mSSE:\033[0m {SSE_diff:.2f}\n\033[32mESS:\033[0m {ESS_diff:.2f}\n\033[32mTSS:\033[0m {TSS_diff:.2f}\n\033[32mMSE:\033[0m {MSE_diff:.2f}\n\033[32mRMSE:\033[0m {RMSE_diff:.2f}\n')
+
+# =======================================================================================================
+# get_eval_stats END
+# get_eval_stats TO 
 #  START
 # =======================================================================================================
