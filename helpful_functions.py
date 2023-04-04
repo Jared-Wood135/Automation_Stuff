@@ -11,6 +11,8 @@
 4. Regression Modeling
     a. regression_prediction
     b. get_eval_stats
+    c. select_kbest
+    d. rfe
 '''
 
 # =======================================================================================================
@@ -40,6 +42,9 @@ from scipy import stats
 
 # Sklearn specific
 from sklearn.model_selection import train_test_split
+from sklearn.feature_selection import SelectKBest, RFE
+from sklearn.feature_selection import f_regression
+from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.linear_model import LinearRegression
 
 # =======================================================================================================
@@ -167,6 +172,57 @@ def get_eval_stats(df, actual_col, baseline_col, prediction_col):
 
 # =======================================================================================================
 # get_eval_stats END
-# get_eval_stats TO 
-#  START
+# get_eval_stats TO select_kbest
+# select_kbest START
 # =======================================================================================================
+
+def select_kbest(predictors, target, k_features):
+    '''
+    Takes in a predictors and target dataframes as well as how many features (column names) you want
+    to be selected.
+
+    INPUT:
+    predictors = Dataframe with ONLY the predictor columns and their respective values. MUST BE INT, FLOAT.
+    target = Dataframe with ONLY the target column and their respective values.
+    k_features = The number of top performing features you want to be returned.
+
+    OUTPUT:
+    top = A list of column names that are the top performing features.
+    '''
+    kbest = SelectKBest(f_regression, k=k_features)
+    _ = kbest.fit(predictors, target)
+    top = predictors.columns[kbest.get_support()].to_list()
+    return top
+
+# =======================================================================================================
+# select_kbest END
+# select_kbest TO rfe
+# rfe START
+# =======================================================================================================
+
+def rfe(predictors, target, k_features):
+    '''
+    Takes in a predictors and target dataframes as well as how many features (column names) you want
+    to be selected.
+
+    INPUT:
+    predictors = Dataframe with ONLY the predictor columns and their respective values. MUST BE INT, FLOAT.
+    target = Dataframe with ONLY the target column and their respective values.
+    k_features = The number of top performing features you want to be returned.
+
+    OUTPUT:
+    top = A dataframe ordered from best to worst performing features.
+    '''
+    LR = LinearRegression()
+    rfe = RFE(LR, n_features_to_select=k_features)
+    rfe.fit(predictors, target)
+    top = pd.DataFrame({'rfe_ranking' : rfe.ranking_},
+                 index=predictors.columns)
+    top = pd.DataFrame(top.rfe_ranking.sort_values())
+    return top
+
+# =======================================================================================================
+# rfe END
+# rfe TO 
+#  START
+# ======================================================================================================
